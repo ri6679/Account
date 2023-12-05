@@ -1,10 +1,10 @@
 package com.example.account_book;
 
-import static com.example.account_book.MainActivity.KEY_CONTEXT;
-import static com.example.account_book.MainActivity.KEY_DATE;
-import static com.example.account_book.MainActivity.KEY_ID;
-import static com.example.account_book.MainActivity.KEY_PRICE;
-import static com.example.account_book.MainActivity.TABLE_NAME;
+import static com.example.account_book.Account.KEY_CONTEXT;
+import static com.example.account_book.Account.KEY_DATE;
+import static com.example.account_book.Account.KEY_ID;
+import static com.example.account_book.Account.KEY_PRICE;
+import static com.example.account_book.Account.TABLE_NAME;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,9 +20,10 @@ class MyDBHelper extends SQLiteOpenHelper {
                 + "%s INTEGER PRIMARY KEY AUTOINCREMENT, " + "%s TEXT, " + "%s INTEGER, " + "%s TEXT);",
                 TABLE_NAME, KEY_ID, KEY_CONTEXT, KEY_PRICE, KEY_DATE);
         db.execSQL(query);
+
     }
 
-    //초기화 역할
+    //초기화
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String query = String.format("DROP TABLE IF EXISTS %s", TABLE_NAME);
         db.execSQL(query);

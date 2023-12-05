@@ -2,7 +2,6 @@ package com.example.account_book;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,10 +27,8 @@ public class MyCursorAdapter extends CursorAdapter {
 
         //getColumnindex(name) : name에 해당하는 필드의 인덱스 번호를 반환한다.
         //cursor.getString(index) : 해당 커서가 위치한 인덱스 위치의 값을 반환한다.
-        String contexts = cursor.getString( cursor.getColumnIndex( MainActivity.KEY_CONTEXT ) );
-        String price = cursor.getString( cursor.getColumnIndex( MainActivity.KEY_PRICE ) );
-
-        Log.d(TAG, contexts + ", " + price);
+        String contexts = cursor.getString( cursor.getColumnIndex( Account.KEY_CONTEXT ) );
+        String price = cursor.getString( cursor.getColumnIndex( Account.KEY_PRICE ) );
 
         item_context.setText( contexts );
         item_price.setText( price );
